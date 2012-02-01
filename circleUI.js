@@ -13,6 +13,11 @@ function circle(_args) {
     createDOMElements();
     drawCircle();
     setListeners();
+    setUp();
+  }
+
+  function setUp() {
+    onMove({pageX:holder.width()/2,pageY: 0,currentTarget:holder})
   }
 
   function setListeners() {
