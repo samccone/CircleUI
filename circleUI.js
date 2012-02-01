@@ -4,6 +4,7 @@ function circle(_args) {
       handle,
       holder,
       mouseOver = false,
+      mouseDown = false,
       args      = _args,
       rad       = args.rad,
       rad2      = args.innerRad;
@@ -15,9 +16,11 @@ function circle(_args) {
   }
 
   function setListeners() {
+    holder.mousedown(function(){mouseDown=true;holder.addClass('down')});
+    holder.mouseup(function(){mouseDown=false;holder.removeClass('down')});
     holder.mouseenter(function(){mouseOver=true;holder.addClass('over')});
     holder.mouseleave(function(){mouseOver=false;holder.removeClass('over')});
-    holder.bind('mousemove',function(e){mouseOver&&onMove(e)});
+    holder.bind('mousemove',function(e){mouseOver&&mouseDown&&onMove(e)});
   }
 
   function createDOMElements() {
