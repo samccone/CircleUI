@@ -54,6 +54,7 @@ function circle(_args) {
     var y = rad - e.pageY- _t.position().top;
     var tan = y/x;
     var angle = Math.atan(tan) * 180 / Math.PI;
+    holder.data({'value': (1.25 - angle/360) % 1 * 100});
     if (x < 0) {
       angle = (angle + 180) % 180;
       if (y < 0) {
