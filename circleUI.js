@@ -49,7 +49,7 @@ function circle(_args) {
   }
   
   function onMove(e) {
-    _t = $(e.currentTarget);
+    var _t = $(e.currentTarget);
     var x = e.pageX - rad - _t.position().left;
     var y = rad - e.pageY- _t.position().top;
     var tan = y/x;
